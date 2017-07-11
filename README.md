@@ -15,10 +15,8 @@ $ sudo chmod 0755 < db folder path > && sudo chown $USER < db folder path >
 $ npm install
 ```
 
-#### File-system
-```bash
-$ ...
-```
+### Quality
+* [*ESLint*](http://eslint.org/docs/user-guide/getting-started)
 
 #### Run server
 * DB start
@@ -27,10 +25,34 @@ mongod --dbpath < db folder path >
 ```
 * Server start
 ```bash
-$ npm start
+$ npm run start
 ```
 
 #### Run tests
 ```bash
-$ ...
+$ npm run tests
+```
+
+### Extra Scripts
+* Show project dependencies
+```bash
+$ npm run list
+```
+* Run lint
+```bash
+$ npm run lint
+```
+
+#### File-system
+```bash
+- api
+  - controllers
+  - models
+  - routes
+- .eslintignore
+- .eslintrc.json
+- .gitignore
+- .package.json
+- .README.md
+- server.js
 ```
