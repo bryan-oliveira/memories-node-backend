@@ -52,7 +52,7 @@ $ npm run lint
 - .eslintignore
 - .eslintrc.json
 - .gitignore
-- .package.json
-- .README.md
+- package.json
+- README.md
 - server.js
 ```
