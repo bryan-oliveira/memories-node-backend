@@ -15,7 +15,7 @@ $ sudo chmod 0755 < db folder path > && sudo chown $USER < db folder path >
 $ npm install
 ```
 
-### Quality
+#### Quality
 * [*ESLint*](http://eslint.org/docs/user-guide/getting-started)
 
 #### Run server
@@ -33,7 +33,7 @@ $ npm run start
 $ npm run tests
 ```
 
-### Extra Scripts
+#### Extra Scripts
 * Show project dependencies
 ```bash
 $ npm run list
