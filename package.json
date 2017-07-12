@@ -2,7 +2,7 @@
   "name": "memories-api",
   "version": "1.0.0",
   "description": "Memories API",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": "6.1"
   },
