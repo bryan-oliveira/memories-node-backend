@@ -10,14 +10,15 @@
     "start": "node server.js",
     "list": "npm list --depth=0",
     "lint": "eslint 'server.js' '/api/*'",
-    "tests": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive test/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bryan-oliveira/memories-node-backend.git"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "homepage": "https://github.com/bryan-oliveira/memories-node-backend#readme",
   "author": "B&Z",
@@ -28,12 +29,15 @@
     "mongoose": "^4.11.1"
   },
   "devDependencies": {
+    "chai": "^4.1.0",
     "eslint": "^4.2.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "nodemon": "^1.11.0"
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "sinon": "^2.3.7"
   }
 }
