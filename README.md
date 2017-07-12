@@ -17,6 +17,7 @@ $ npm install
 
 #### Quality
 * [*ESLint*](http://eslint.org/docs/user-guide/getting-started)
+* [*Standard*](https://standardjs.com/)
 
 #### Run server
 * DB start
