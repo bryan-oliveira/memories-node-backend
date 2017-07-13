@@ -31,14 +31,9 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "eslint": "^4.2.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0",
-    "sinon": "^2.3.7",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "sinon": "^2.3.7"
   }
 }
