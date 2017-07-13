@@ -31,7 +31,7 @@ $ npm run start
 
 #### Run tests
 ```bash
-$ npm run tests
+$ npm run test
 ```
 
 #### Extra Scripts
