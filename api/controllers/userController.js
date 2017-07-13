@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 
-var User = mongoose.model('User')
+var User = require('../models/userModel')
+
 
 exports.list_all_users = function(req, res) {
   User.find({}, function(err, task) {
@@ -9,6 +10,7 @@ exports.list_all_users = function(req, res) {
     res.json(task)
   })
 }
+
 
 exports.create_user = function(req, res) {
   var new_user = new User(req.body)
