@@ -24,10 +24,10 @@ $ npm install
 ./node_modules/.bin/eslint --init
 ```
 This will ask some questions, please select:
-* How would you like to configure ESLint? *Use a popular style guide*
-* Which style guide do you want to follow? *Airbnb*
-* Do you use React? *No*
-* What format do you want your config file to be in? *JavaScript*
+* How would you like to configure ESLint? **Use a popular style guide**
+* Which style guide do you want to follow? **Airbnb**
+* Do you use React? **No**
+* What format do you want your config file to be in? **JavaScript**
 
 And finnally, replace the `.eslintrc.js` content file with:
 ```json
