@@ -2,27 +2,29 @@
 //* Memories API Server
 //* ***********************************************************
 
-var express = require('express')
-var app = express()
-var port = process.env.PORT || 3000
-var mongoose = require('mongoose')
-var bodyParser = require('body-parser')
+const express = require('express');
 
-mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/memories')
+const app = express();
+const port = process.env.PORT || 3000;
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/memories');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/userRoutes')
-routes(app)
+const routes = require('./api/routes/userRoutes');
+
+routes(app);
 
 // On 404 send error message
-app.use(function (req, res) {
-  res.status(404).send({url: req.originalUrl + ' not found'})
-})
+app.use((req, res) => {
+  res.status(404).send({ url: `${req.originalUrl} not found` });
+});
 
-app.listen(port)
+app.listen(port);
 
-console.log('Memories API server started on: ' + port)
+console.log(`Memories API server started on: ${port}`);

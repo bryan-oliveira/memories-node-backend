@@ -1,4 +1,6 @@
-# memories-node-backend ![alt tag](https://img.shields.io/badge/awesome_version-v0.1-brightgreen.svg) ![alt tag](https://img.shields.io/badge/eslint-standard-brightgreen.svg)
+# memories-node-backend
+![alt tag](https://img.shields.io/badge/awesome_version-v0.1-brightgreen.svg?style=flat)
+![alt tag](https://img.shields.io/badge/ESLint-Airbnb-brightgreen.svg?style=flat)
 
 ## Memories API server in NodeJs
 
@@ -11,8 +13,36 @@ $ sudo chmod 0755 < db folder path > && sudo chown $USER < db folder path >
 ```
 
 #### Instalation
+
+##### Node modules
 ```bash
 $ npm install
+```
+
+##### Eslint
+```bash
+./node_modules/.bin/eslint --init
+```
+This will ask some questions, please select:
+*?* How would you like to configure ESLint? *Use a popular style guide*
+*?*? Which style guide do you want to follow? *Airbnb*
+*?* Do you use React? *No*
+*?* What format do you want your config file to be in? *JavaScript*
+And finnally, replace the `.eslintrc.js` content file with:
+
+```json
+// http://eslint.org/docs/user-guide/configuring.html#specifying-environments
+
+module.exports = {
+    "extends": "airbnb-base",
+    "plugins": [
+        "import"
+    ],
+    "env": {
+      "node": true,
+      "mocha": true
+    }
+};
 ```
 
 #### Quality
@@ -50,6 +80,9 @@ $ npm run lint
   - controllers
   - models
   - routes
+- test
+  - controllers
+  - models
 - .eslintignore
 - .eslintrc.json
 - .gitignore

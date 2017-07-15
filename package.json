@@ -9,7 +9,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "list": "npm list --depth=0",
-    "lint": "eslint 'server.js' '/api/*'",
+    "lint": "eslint 'server.js' '/api/*' --fix",
     "test": "mocha --recursive test/"
   },
   "repository": {
@@ -30,7 +30,10 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
-    "eslint": "^4.2.0",
+    "dirty-chai": "^2.0.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0",
     "pre-commit": "^1.2.2",
