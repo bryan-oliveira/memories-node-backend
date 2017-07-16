@@ -71,6 +71,15 @@ describe('Memory', () => {
     });
   });
 
+  it('should be invalid if startDateTime is empty', (done) => {
+    const memory = new Memory();
+
+    memory.validate((err) => {
+      expect(err.errors.startDateTime).to.exist();
+      done();
+    });
+  });
+
   it('should be invalid if startDateTime is not a Date()', (done) => {
     const memory = new Memory({
       startDateTime: 'imAstring',
@@ -101,6 +110,15 @@ describe('Memory', () => {
 
     memory.validate((err) => {
       expect(err.errors.endDateTime).to.not.exist();
+      done();
+    });
+  });
+
+  it('should be invalid if endDateTime is empty', (done) => {
+    const memory = new Memory();
+
+    memory.validate((err) => {
+      expect(err.errors.endDateTime).to.exist();
       done();
     });
   });

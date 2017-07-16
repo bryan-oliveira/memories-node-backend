@@ -21,11 +21,11 @@ const MemorySchema = new Schema({
   },
   startDateTime: {
     type: Date,
-    required: false,
+    required: true,
   },
   endDateTime: {
     type: Date,
-    required: false,
+    required: true,
   },
   Created_date: {
     type: Date,
