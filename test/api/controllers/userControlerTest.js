@@ -6,71 +6,76 @@ const expect = chai.expect
 chai.use(dirtyChai);
 
 const userController = require('../../../api/controllers/userController');
-const User = require('../../../api/models/userModel')
+const dbHelper = require('../../../helpers/dbUserHelper')
 
 describe("userController", () => {
   describe("list_users", () => {
-    it("should respond", () => {
+    it("should respond", (done) => {
       let req, res, spy;
 
       req = res = {};
-      spy = User.find = sinon.spy();
+      spy = dbHelper.find_all = sinon.spy();
 
       userController.list_users(req, res);
       expect(spy.calledOnce).to.equal(true);
+      done()
     });
   });
 
-  // describe("create_user", () => {
-  //   it("should respond", () => {
-  //     let req, res, spy;
-  //
-  //     req = res = { 'body': {
-  //       'name': "Mr. User",
-  //       'email': "mr_user@email.com",
-  //       'password': "P@ssw0rd"
-  //     }}
-  //
-  //     spy = User.save = sinon.spy();
-  //
-  //     userController.create_user(req, res);
-  //     expect(spy.calledOnce).to.equal(true);
-  //   });
-  // });
+  describe("create_user", () => {
+    it("should respond", (done) => {
+      let req, res, spy;
+
+      req = res = { 'body': {
+        'name': "Mr. User",
+        'email': "mr_user@email.com",
+        'password': "P@ssw0rd"
+      }}
+
+      spy = dbHelper.save_user = sinon.spy();
+
+      userController.create_user(req, res);
+      expect(spy.calledOnce).to.equal(true);
+      done()
+    });
+  });
 
   describe("find_user", () => {
-    it("should respond", () => {
+    it("should respond", (done) => {
       let req, res, spy;
 
       req = res = { 'params': { 'userId': 234321 } };
-      spy = User.findById = sinon.spy();
+      spy = dbHelper.find_user = sinon.spy();
 
       userController.find_user(req, res);
       expect(spy.calledOnce).to.equal(true);
+      done()
     });
   });
 
   describe("update_user", () => {
-    it("should respond", () => {
+    it("should respond", (done) => {
       let req, res, spy;
 
       req = res = { 'params': { 'userId': 234321 } };
-      spy = User.findOneAndUpdate = sinon.spy();
+      spy = dbHelper.update_user = sinon.spy();
 
       userController.update_user(req, res);
       expect(spy.calledOnce).to.equal(true);
+      done()
     });
   });
 
   describe("delete_user", () => {
-    it("should respond", () => {
+    it("should respond", (done) => {
       let req, res, spy;
 
       req = res = { 'params': { 'userId': 234321 } };
-      spy = User.remove = sinon.spy();
+      spy = dbHelper.delete_user = sinon.spy();
 
       userController.delete_user(req, res);
       expect(spy.calledOnce).to.equal(true);
+      done()
     });
   });
 });
