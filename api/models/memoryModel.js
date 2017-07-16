@@ -9,11 +9,11 @@ const MemorySchema = new Schema({
   },
   photo_count: {
     type: Number,
-    required: true,
+    default: 0,
   },
   friend_count: {
     type: Number,
-    required: true,
+    default: 0,
   },
   cover_photo: {
     type: String,
