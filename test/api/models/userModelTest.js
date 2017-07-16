@@ -6,8 +6,8 @@ chai.use(dirtyChai);
 
 const User = require('../../../api/models/userModel.js')
 
-describe('User', function() {
-    it('should be invalid if name is empty', function(done) {
+describe('User', () => {
+    it('should be invalid if name is empty', (done) => {
         const user = new User()
 
         user.validate(function(err) {
@@ -16,7 +16,7 @@ describe('User', function() {
         })
     })
 
-    it('should be valid if name is not empty', function(done) {
+    it('should be valid if name is not empty', (done) => {
         const user = new User({
           name: "userName",
         })
@@ -27,7 +27,7 @@ describe('User', function() {
         })
     })
 
-    it('should be invalid if email is empty', function(done) {
+    it('should be invalid if email is empty', (done) => {
         const user = new User()
 
         user.validate(function(err) {
@@ -36,7 +36,7 @@ describe('User', function() {
         })
     })
 
-    it('should be valid if name is not empty', function(done) {
+    it('should be valid if name is not empty', (done) => {
       const user = new User({
         email: "example@email.com",
       })
@@ -47,7 +47,7 @@ describe('User', function() {
         })
     })
 
-    it('should be invalid if password is empty', function(done) {
+    it('should be invalid if password is empty', (done) => {
         const user = new User()
 
         user.validate(function(err) {
@@ -56,7 +56,7 @@ describe('User', function() {
         })
     })
 
-    it('should be valid if password is not empty', function(done) {
+    it('should be valid if password is not empty', (done) => {
       const user = new User({
         password: "lukeIamYourFather",
       })
