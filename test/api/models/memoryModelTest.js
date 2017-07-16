@@ -4,6 +4,7 @@ const dirtyChai = require('dirty-chai');
 const expect = chai.expect;
 
 chai.use(dirtyChai);
+chai.use(require('chai-datetime'));
 
 const Memory = require('../../../api/models/memoryModel.js');
 
@@ -28,38 +29,29 @@ describe('Memory', () => {
     });
   });
 
-  it('should be invalid if photo count is empty', (done) => {
+  it('should be valid if photo count is 0 upon Memory creation', (done) => {
     const memory = new Memory();
 
     memory.validate((err) => {
-      expect(err.errors.photo_count).to.exist();
-      done();
-    });
-  });
-
-  it('should be valid if photo count is not empty', (done) => {
-    const memory = new Memory({
-      photo_count: 0,
-    });
-
-    memory.validate((err) => {
+      expect(memory.photo_count).to.equal(0);
       expect(err.errors.photo_count).to.not.exist();
       done();
     });
   });
 
-  it('should be invalid if cover photo is empty', (done) => {
+  it('should be valid if friend count is 0 upon Memory creation', (done) => {
     const memory = new Memory();
 
     memory.validate((err) => {
-      expect(err.errors.cover_photo).to.exist();
+      expect(memory.friend_count).to.equal(0);
+      expect(err.errors.friend_count).to.not.exist();
       done();
     });
   });
 
-  it('should be valid if cover photo is not empty', (done) => {
+  it('should be valid if cover photo is 0 upon new Memory creation', (done) => {
     const memory = new Memory({
-      cover_photo: 'http://whatHappensInVegasStaysInVegas.com/pics',
+      cover_photo: 0,
     });
 
     memory.validate((err) => {
@@ -86,6 +78,18 @@ describe('Memory', () => {
 
     memory.validate((err) => {
       expect(err.errors.startDateTime).to.exist();
+      done();
+    });
+  });
+
+  it('should be valid if startDateTime is before endDateTime', (done) => {
+    const memory = new Memory({
+      startDateTime: new Date('10/05/1986'),
+      endDateTime: new Date('11/05/1986'),
+    });
+
+    memory.validate(() => {
+      expect(memory.startDateTime).to.be.beforeDate(memory.endDateTime);
       done();
     });
   });
