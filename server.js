@@ -1,6 +1,7 @@
 //* ***********************************************************
 //* Memories API Server
 //* ***********************************************************
+require('dotenv').config();
 
 const express = require('express');
 
@@ -12,13 +13,40 @@ const bodyParser = require('body-parser');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/memories');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// killing App Softly :D
+const killingAppSoftly = () => {
+  process.exit(0);
+};
 
+// do something when app is closing
+process.once('exit', () => {
+  console.log('Normal node exit... terminating server.');
+  killingAppSoftly();
+});
 
-const routes = require('./api/routes/userRoutes');
+// catches uncaught exceptions
+process.once('uncaughtException', (err) => {
+  console.log(`Uncaught exception occoured... ${err}. terminating server.`);
+  killingAppSoftly();
+});
 
-routes(app);
+// catches ctrl+c event
+process.once('SIGINT', () => {
+  console.log('CTRL+C pressed... terminating server.');
+  killingAppSoftly();
+});
+
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+
+// routes
+const indexRoutes = require('./api/routes/indexRoutes');
+
+indexRoutes(app);
+
+const userRoutes = require('./api/routes/userRoutes');
+
+userRoutes(app);
 
 // On 404 send error message
 app.use((req, res) => {
@@ -28,3 +56,5 @@ app.use((req, res) => {
 app.listen(port);
 
 console.log(`Memories API server started on: ${port}`);
+
+module.exports = app;

@@ -21,7 +21,7 @@ $ npm install
 
 ##### Eslint
 ```bash
-./node_modules/.bin/eslint --init
+$ ./node_modules/.bin/eslint --init
 ```
 This will ask some questions, please select:
 * How would you like to configure ESLint? **Use a popular style guide**
@@ -52,7 +52,7 @@ module.exports = {
 #### Run server
 * DB start
 ```bash
-mongod --dbpath < db folder path >
+$ mongod --dbpath < db folder path >
 ```
 * Server start
 ```bash
@@ -80,6 +80,8 @@ $ npm run lint
   - controllers
   - models
   - routes
+- doc
+- helpers
 - test
   - controllers
   - models
