@@ -1,0 +1,21 @@
+## Root - HealthCheck
+
+# GET /
+curl -i -X GET -H "Content-Type: application/json" -X GET http://localhost:3001
+
+## Users
+
+# GET /users
+curl -i -X GET -H "Content-Type: application/json" -X GET http://localhost:3001/users
+
+# POST /users
+curl -i -X POST -H "Content-Type: application/json" -X POST -d "@./doc/sample_user.json" http://localhost:3001/users
+
+# GET /users/:userId
+curl -i -X GET -H "Content-Type: application/json" -X GET http://localhost:3001/users/<user_id>
+
+# PUT /users/:userId
+curl -i -X PUT -H "Content-Type: application/json" -X PUT -d "@./doc/sample_user.json" http://localhost:3001/users/<user_id>
+
+# DELETE /users/:userId
+curl -i -X DELETE -H "Content-Type: application/json" -X DELETE http://localhost:3001/users/<user_id>
