@@ -33,4 +33,18 @@ const MemorySchema = new Schema({
   },
 });
 
+MemorySchema.pre('validate', function (next, done) {
+  const memory = this;
+  // If both dates are present, make sure start date is before end date
+  if (memory.startDateTime !== undefined && memory.endDateTime !== undefined) {
+    const start = memory.startDateTime.getTime();
+    const end = memory.endDateTime.getTime();
+    if (start > end) {
+      const err = memory.invalidate('startDateTime', 'Start date must be before end date');
+      done(err);
+    }
+  }
+  next();
+});
+
 module.exports = mongoose.model('Memory', MemorySchema);

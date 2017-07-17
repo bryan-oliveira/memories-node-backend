@@ -103,14 +103,14 @@ describe('Memory', () => {
     });
   });
 
-  it('should be invalid if endDateTime is before startDateTime', (done) => {
+  it('should be invalid if startDateTime is after endDateTime', (done) => {
     const memory = new Memory({
       startDateTime: new Date('11/05/1986'),
       endDateTime: new Date('10/05/1986'),
     });
 
-    memory.validate(() => {
-      expect(memory.endDateTime).to.be.beforeDate(memory.startDateTime);
+    memory.validate((err) => {
+      expect(err.errors.startDateTime).to.exist();
       done();
     });
   });
