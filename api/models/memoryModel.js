@@ -41,7 +41,7 @@ MemorySchema.pre('validate', function (next, done) {
     const end = memory.endDateTime.getTime();
     if (start > end) {
       const err = memory.invalidate('startDateTime', 'Start date must be before end date');
-      done(err);
+      next(err);
     }
   }
   next();
