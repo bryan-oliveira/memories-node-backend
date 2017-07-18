@@ -17,7 +17,7 @@ const MemorySchema = new Schema({
   },
   cover_photo: {
     type: String,
-    required: true,
+    default: '',
   },
   startDateTime: {
     type: Date,
