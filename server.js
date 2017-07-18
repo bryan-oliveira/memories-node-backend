@@ -44,9 +44,14 @@ const indexRoutes = require('./api/routes/indexRoutes');
 
 indexRoutes(app);
 
+const memoryRoutes = require('./api/routes/memoryRoutes');
+
+memoryRoutes(app);
+
 const userRoutes = require('./api/routes/userRoutes');
 
 userRoutes(app);
+
 
 // On 404 send error message
 app.use((req, res) => {
