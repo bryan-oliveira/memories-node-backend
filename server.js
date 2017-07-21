@@ -41,15 +41,11 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // routes
 const indexRoutes = require('./api/routes/indexRoutes');
-
-indexRoutes(app);
-
 const memoryRoutes = require('./api/routes/memoryRoutes');
-
-memoryRoutes(app);
-
 const userRoutes = require('./api/routes/userRoutes');
 
+indexRoutes(app);
+memoryRoutes(app);
 userRoutes(app);
 
 
