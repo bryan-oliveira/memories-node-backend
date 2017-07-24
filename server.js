@@ -41,12 +41,13 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // routes
 const indexRoutes = require('./api/routes/indexRoutes');
-
-indexRoutes(app);
-
+const memoryRoutes = require('./api/routes/memoryRoutes');
 const userRoutes = require('./api/routes/userRoutes');
 
+indexRoutes(app);
+memoryRoutes(app);
 userRoutes(app);
+
 
 // On 404 send error message
 app.use((req, res) => {
